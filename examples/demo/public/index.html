@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no" />
+  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+
+  <link rel="stylesheet" href="http://localhost:8058/stylesheets/client/global.css" />
+  <link rel="stylesheet" href="http://localhost:8058/stylesheets/client/bundle.css" />
+  <!-- <script src="https://cdn.lr-ingest.io/LogRocket.min.js" crossorigin="anonymous"></script> -->
+<!-- <script>window.LogRocket && window.LogRocket.init('10igmq/feelytics');</script> -->
+  <script>
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker
+                 .register('/sw.js')
+                 .then(function() { console.log("Service Worker Registered"); });
+      }
+      </script>
+      <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+      <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+      <script src="semantic/dist/semantic.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rrweb@latest/dist/rrweb.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!-- <link rel="stylesheet" href="bugX.buggy.css" /> -->
+  </script>
+    <script type="text/javascript">
+      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+      analytics.load("MwvctrmMcosqfcFOkEaayuzrqGDonfG2");
+      analytics.page();
+      }}();
+
+    </script>
+  <title>Posters Galore Administration</title>
+  <style>
+    .loader-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #fafafa;
+    }
+
+    /* CSS Spinner from https://projects.lukehaas.me/css-loaders/ */
+
+    .loader,
+    .loader:before,
+    .loader:after {
+      border-radius: 50%;
+    }
+
+    .loader {
+      color: #283593;
+      font-size: 11px;
+      text-indent: -99999em;
+      margin: 55px auto;
+      position: relative;
+      width: 10em;
+      height: 10em;
+      box-shadow: inset 0 0 0 1em;
+      -webkit-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+
+    .loader:before,
+    .loader:after {
+      position: absolute;
+      content: '';
+    }
+
+    .loader:before {
+      width: 5.2em;
+      height: 10.2em;
+      background: #fafafa;
+      border-radius: 10.2em 0 0 10.2em;
+      top: -0.1em;
+      left: -0.1em;
+      -webkit-transform-origin: 5.2em 5.1em;
+      transform-origin: 5.2em 5.1em;
+      -webkit-animation: load2 2s infinite ease 1.5s;
+      animation: load2 2s infinite ease 1.5s;
+    }
+
+    .loader:after {
+      width: 5.2em;
+      height: 10.2em;
+      background: #fafafa;
+      border-radius: 0 10.2em 10.2em 0;
+      top: -0.1em;
+      left: 5.1em;
+      -webkit-transform-origin: 0px 5.1em;
+      transform-origin: 0px 5.1em;
+      -webkit-animation: load2 2s infinite ease;
+      animation: load2 2s infinite ease;
+    }
+
+    @-webkit-keyframes load2 {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes load2 {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+
+
+<!-- Packages need for bugX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rrweb@latest/dist/rrweb.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/rrweb@latest/dist/rrweb.min.js"></script>
+<link rel="stylesheet" href="bugX.buggy.css" />
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+
+  <script type="text/javascript" src="http://localhost:8058/javascripts/clientbundle.js"></script>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="root">
+    <div class="loader-container">
+      <div class="loader">Loading...</div>
+      
+    </div>
+  </div>
+<script>
+// function calculate_load_times() {
+//   // Check performance support
+//   if (performance === undefined) {
+//     console.log("= Calculate Load Times: performance NOT supported");
+//     return;
+//   }
+
+//   // Get a list of "resource" performance entries
+//   var resources = performance.getEntriesByType("resource");
+//   if (resources === undefined || resources.length <= 0) {
+//     console.log("= Calculate Load Times: there are NO `resource` performance records");
+//     return;
+//   }
+
+//   console.log("= Calculate Load Times");
+//   for (var i=0; i < resources.length; i++) {
+//     console.log("== Resource[" + i + "] - " + resources[i].name);
+//     // Redirect time
+//     var t = resources[i].redirectEnd - resources[i].redirectStart;
+//     console.log("... Redirect time = " + t);
+
+//     // DNS time
+//     t = resources[i].domainLookupEnd - resources[i].domainLookupStart;
+//     console.log("... DNS lookup time = " + t);
+
+//     // TCP handshake time
+//     t = resources[i].connectEnd - resources[i].connectStart;
+//     console.log("... TCP time = " + t);
+
+//     // Secure connection time
+//     t = (resources[i].secureConnectionStart > 0) ? (resources[i].connectEnd - resources[i].secureConnectionStart) : "0";
+//     console.log("... Secure connection time = " + t);
+
+//     // Response time
+//     t = resources[i].responseEnd - resources[i].responseStart;
+//     console.log("... Response time = " + t);
+
+//     // Fetch until response end
+//     t = (resources[i].fetchStart > 0) ? (resources[i].responseEnd - resources[i].fetchStart) : "0";
+//     console.log("... Fetch until response end time = " + t);
+
+//     // Request start until reponse end
+//     t = (resources[i].requestStart > 0) ? (resources[i].responseEnd - resources[i].requestStart) : "0";
+//     console.log("... Request start until response end time = " + t);
+
+//     // Start until reponse end
+//     t = (resources[i].startTime > 0) ? (resources[i].responseEnd - resources[i].startTime) : "0";
+//     console.log("... Start until response end time = " + t);
+
+//     t = resources[i].initiatorType;
+//     console.log("... type = " + t);
+//   
+
+
+
+
+  var page = {};
+  let uselesstime = [];
+  var events = [];
+  var starttime;
+  var urls= [];
+  var times = [];
+
+  var severity = null;
+  startRecord();
+  injectHtml();
+    function uuidv4() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+    
+    var bugXid = uuidv4();
+    sessionStorage['bugXId'] = bugXid;
+    var readValue = sessionStorage['bugXId'];
+    console.log(readValue);
+    
+    window.onhashchange = urlchange;
+
+    j=0;
+    function urlchange(){
+        urls.push(window.location.href);
+        times.push(Date.now() - starttime);
+    }
+    function startRecord(){
+      starttime = Date.now();
+      events = [];
+      urltimes = {};
+      urls.push(window.location.href);
+      times.push(0);
+      urltimes[window.location.href] = 0;
+      window.stopFn = rrweb.record({
+      emit(event) {
+          events.push(event);
+          console.log(event);
+        },
+      });
+    }
+    
+    function save() {
+      totalTime = Date.now() - starttime;
+      console.log(totalTime);
+      console.log(urltimes);
+      var x = document.getElementById("bug_sprint_title").value;
+      document.getElementById("bug_sprint_title").value = "";
+      finalTime = {
+        urls : urls,
+        times : times,
+        total : totalTime
+      }
+        var page = {};
+        var x;
+        console.log(JSON.stringify({title: x,events:events, reportDate: new Date(), times: finalTime}));
+
+        var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+        var Url = "http://localhost:8058/report";
+        var body = JSON.stringify({title:x, events:events, reportDate: new Date(), times: finalTime, id: bugXid, severity: severity});
+        xmlhttp.open("POST", Url);
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlhttp.send(body);
+        return true;
+      }
+
+      function show(){
+        $('.ui.modal').modal({
+          onHide: function(){
+            var player = document.getElementById('player');
+            player.remove();
+            console.log('hidden');
+            setTimeout(function(){
+              console.log('time');
+              startRecord()
+            },4000);
+          },
+          onShow: function(){
+            stopFn();
+          },
+        onApprove: function() {
+            console.log('Approve');
+            save();
+        }
+        }).modal('show');
+
+        var div = document.getElementById('modal');
+        var player = document.createElement('div');
+        var actions = document.querySelector('#severity')
+        player.style= "margin:3%;overflow:hidden;";
+        player.setAttribute('id','player');
+        div.insertBefore(player, actions);
+        const component = new rrwebPlayer({
+          target: document.getElementById('player'), // customizable root element
+          data: {
+            events
+          }
+        });
+      }
+
+
+    function injectHtml(){
+      console.log("injecting floating button");
+      var button = document.createElement("Button");
+      button.setAttribute('id','buggy');
+      button.setAttribute('class','ui white compact button');
+      button.innerHTML = 'REPORT';
+      // button.setAttribute('onclick','save();' + onclick);
+      button.onclick = show;
+      button.style = "color: white; bottom:0;right:-22px;position:fixed;z-index: 9;margin-bottom:25%; align-items: center;background: #293593; display:flex;word-spacing: normal;letter-spacing: normal;text-align: center; font-size: 10px; padding-right:3em;flex-direction: row;"
+      document.body.appendChild(button);
+      var div = document.createElement('div');
+      div.setAttribute = ('id', 'modal');
+      document.body.appendChild(div);
+      div.innerHTML = '<div id="modal" class="ui modal test"><div id="title" style="margin:3%;overflow:hidden; "><textarea id="bug_sprint_title" placeholder="What went wrong?" maxlength="256" style="width: 100%; border: none;background-color: none;outline: 0;font-size: 25px;overflow: hidden; resize: none;"></textarea></div><div style="margin:3%;overflow:hidden;"  id="severity"><div class="five ui buttons" id="btn-group"><button class="ui button" id="btn">Critical</button><button id="btn" class="ui button">Major</button><button id="btn" class="ui button">Moderate</button><button id="btn" class="ui button">Minor</button><button id="btn" class="ui button">Cosmetic</button></div></div> <div id="action" class="actions"><div class="ui red deny button">Discard</div><div class="ui positive right labeled icon button">Report Bug<i class="bug icon"></i></div></div></div>';
+      $('#title').keypress(function(event) {
+          if (event.keyCode == 13) {
+              event.preventDefault();
+          }
+      });
+      var ele = document.querySelectorAll("#btn-group > button#btn");
+      for(var i=0; i<ele.length; i++){
+          ele[i].addEventListener("click", function(){
+              severity = this.innerHTML;
+              console.log(severity);
+          });
+      }
+    }
+  
+</script>
+</body>
+</html>
